@@ -61,3 +61,6 @@ cookbooks
 
 # vagrant
 .vagrant
+
+# other
+token

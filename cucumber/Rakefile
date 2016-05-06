@@ -1,0 +1,21 @@
+require 'rubocop/rake_task'
+require 'rspec/core/rake_task'
+
+RSpec::Core::RakeTask.new(:spec) do |t|
+  t.rspec_opts = %w(--color -fprogress -fhtml -oreports/rspec.html)
+end
+
+desc 'Make sure we are good rubyists'
+RuboCop::RakeTask.new(:rubocop) do |t|
+  t.formatters = ['progress']
+  t.options = ['-fhtml', '-oreports/rubocop.html']
+  #  don't abort rake on failure
+  t.fail_on_error = true
+end
+
+desc 'Remove all files from the ./reports and ./doc directory'
+task :clean do
+  require 'fileutils'
+  FileUtils.rm_rf Dir.glob('reports/*')
+  FileUtils.rm_rf Dir.glob('doc/*')
+end

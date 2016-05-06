@@ -1,0 +1,29 @@
+{
+    "variables": {
+        "aws_access_key": "{{env `TF_VAR_access_key`}}",
+        "aws_secret_key": "{{env `TF_VAR_secret_key`}}"
+    },
+    "provisioners": [{
+        "type": "shell",
+        "inline": [
+            "sleep 30",
+            "sudo apt-get update"
+        ]
+    },
+    {
+        "type": "chef-solo",
+        "cookbook_paths": ["cookbooks"],
+        "run_list": ["zero-to-tested-chef"]
+    }],
+    "builders": [{
+        "type": "amazon-ebs",
+        "access_key": "{{user `aws_access_key`}}",
+        "secret_key": "{{user `aws_secret_key`}}",
+        "region": "eu-west-1",
+        "source_ami": "ami-85a12bf6",
+        "instance_type": "t1.micro",
+        "ssh_username": "ubuntu",
+        "ssh_pty" : "true",
+        "ami_name": "jenkins {{timestamp}}"
+    }]
+}

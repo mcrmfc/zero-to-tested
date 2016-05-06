@@ -1,0 +1,20 @@
+AllCops:
+    Exclude:
+      - 'bin/**/*'
+      - 'vendor/**/*'
+      - 'features/support/wait.rb' # excluded as needs improvement
+      - 'Rakefile'
+      - 'Gemfile'
+      - 'Gemfile.lock'
+
+Metrics/LineLength:
+     Max: 100
+
+Performance/Casecmp:
+     Enabled: false
+
+Style/PredicateName:
+     Enabled: false
+
+Style/RegexpLiteral:
+     Enabled: false

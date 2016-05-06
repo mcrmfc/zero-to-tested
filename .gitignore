@@ -1,0 +1,72 @@
+*.gem
+*.rbc
+/.config
+/coverage/
+/InstalledFiles
+/pkg/
+/spec/reports/
+/test/tmp/
+/test/version_tmp/
+/tmp/
+
+## Specific to RubyMotion:
+.dat*
+.repl_history
+build/
+
+## Documentation cache and generated files:
+/.yardoc/
+/_yardoc/
+/doc/
+/rdoc/
+output/
+
+## Environment normalisation:
+/bin
+/.bundle/
+/vendor/bundle
+/lib/bundler/man/
+
+# for a library or gem, you might want to ignore these files since the code is
+# intended to run in multiple environments; otherwise, check them in:
+# Gemfile.lock
+# .ruby-version
+# .ruby-gemset
+
+# unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
+.rvmrc
+
+# reports
+/reports
+
+# yardoc
+/doc
+
+# jetbrains
+.idea/.name
+.idea/encodings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/playlister-acceptance.iml
+.idea/scopes/scope_settings.xml
+.idea/vcs.xml
+.idea/workspace.xml
+.idea/.rakeTasks
+
+# docker
+docker_reports
+
+# chef
+cookbooks
+
+# vagrant
+.vagrant
+
+# other
+token
+cucumber/reports
+cucumber/zero_stdout
+cucumber/zero_stderr
+cucumber/zeroapp/*.html
+cucumber/zeroapp/*.png
+cucumber/*.pid

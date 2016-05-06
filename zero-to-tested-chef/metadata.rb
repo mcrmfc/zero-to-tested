@@ -1,0 +1,10 @@
+name             'zero-to-tested-chef'
+maintainer       'YOUR_NAME'
+maintainer_email 'YOUR_EMAIL'
+license          'All rights reserved'
+description      'Installs/Configures zero to tested'
+long_description 'Installs/Configures zero to tested'
+version          '0.1.0'
+
+depends 'jenkins'
+depends 'docker'

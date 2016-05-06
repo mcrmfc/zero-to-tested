@@ -1,0 +1,21 @@
+DEPENDENCIES
+  zero-to-tested-chef
+    path: .
+    metadata: true
+
+GRAPH
+  apt (2.9.2)
+  compat_resource (12.9.1)
+  docker (2.6.8)
+    compat_resource (>= 12.9.0)
+  jenkins (2.4.1)
+    apt (~> 2.0)
+    runit (~> 1.5)
+    yum (~> 3.0)
+  packagecloud (0.2.0)
+  runit (1.7.6)
+    packagecloud (>= 0.0.0)
+  yum (3.10.0)
+  zero-to-tested-chef (0.1.0)
+    docker (>= 0.0.0)
+    jenkins (>= 0.0.0)

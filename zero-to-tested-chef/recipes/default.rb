@@ -16,13 +16,24 @@ group 'docker' do
   notifies :restart, "service[jenkins]", :immediately
 end
 
-xml_filename = File.join(Chef::Config[:file_cache_path], 'test-config.xml')
+jobs = %w(hello-docker-config.xml hello-cucumber-config.xml)
 
-template xml_filename do
- source 'test-config.xml.erb'
+jobs.each do |job|
+  filename = File.join(Chef::Config[:file_cache_path], job)
+  template filename do
+    source "#{job}.erb"
+  end
+
+  jenkins_job job.chomp('.xml') do
+    config filename
+    action :create
+  end
 end
 
-jenkins_job 'docker-hello-world' do
- config xml_filename
- action :create
+plugins = %w(git ansicolor postbuildscript)
+
+plugins.each do |plugin|
+  jenkins_plugin plugin do
+    notifies :restart, "service[jenkins]", :immediately
+  end
 end

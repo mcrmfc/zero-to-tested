@@ -28,6 +28,7 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
     && rm "node-v$NODE_VERSION-linux-x64.tar.gz" SHASUMS256.txt.asc
 
 WORKDIR /opt/ruby
+
 # install our dependencies and nodejs
 RUN npm install -g phantomjs
 # Make it long running

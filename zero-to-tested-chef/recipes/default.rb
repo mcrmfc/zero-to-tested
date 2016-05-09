@@ -30,7 +30,7 @@ jobs.each do |job|
   end
 end
 
-plugins = %w(git ansicolor postbuildscript)
+plugins = %w(git ansicolor postbuildscript job-dsl)
 
 plugins.each do |plugin|
   jenkins_plugin plugin do

@@ -16,4 +16,4 @@ docker exec -u $_user:$_group $CONTAINER_NAME bundle install --binstubs --path v
 docker exec $CONTAINER_NAME bundle exec rake clean
 
 # run tests
-docker exec $CONTAINER_NAME bin/cucumber
+docker exec $CONTAINER_NAME bin/cucumber -f pretty -f json -o reports/report.json

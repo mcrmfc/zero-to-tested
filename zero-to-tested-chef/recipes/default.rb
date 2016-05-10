@@ -16,7 +16,7 @@ group 'docker' do
   notifies :restart, "service[jenkins]", :immediately
 end
 
-jobs = %w(hello-docker-config.xml hello-cucumber-config.xml)
+jobs = %w(job-dsl-seed.xml)
 
 jobs.each do |job|
   filename = File.join(Chef::Config[:file_cache_path], job)
@@ -30,7 +30,7 @@ jobs.each do |job|
   end
 end
 
-plugins = %w(git ansicolor postbuildscript job-dsl)
+plugins = %w(git ansicolor postbuildscript job-dsl cucumber-reports)
 
 plugins.each do |plugin|
   jenkins_plugin plugin do

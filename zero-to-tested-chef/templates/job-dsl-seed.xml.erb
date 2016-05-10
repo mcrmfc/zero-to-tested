@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <jenkins.model.BuildDiscarderProperty>
+      <strategy class="hudson.tasks.LogRotator">
+        <daysToKeep>-1</daysToKeep>
+        <numToKeep>10</numToKeep>
+        <artifactDaysToKeep>-1</artifactDaysToKeep>
+        <artifactNumToKeep>-1</artifactNumToKeep>
+      </strategy>
+    </jenkins.model.BuildDiscarderProperty>
+  </properties>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.4.4">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://github.com/mcrmfc/zero-to-tested.git</url>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/wip</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers>
+    <hudson.triggers.TimerTrigger>
+      <spec>* * * * *</spec>
+    </hudson.triggers.TimerTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <javaposse.jobdsl.plugin.ExecuteDslScripts plugin="job-dsl@1.46">
+      <targets>jobs/**/*.groovy</targets>
+      <usingScriptText>false</usingScriptText>
+      <ignoreExisting>false</ignoreExisting>
+      <removedJobAction>IGNORE</removedJobAction>
+      <removedViewAction>IGNORE</removedViewAction>
+      <lookupStrategy>JENKINS_ROOT</lookupStrategy>
+      <additionalClasspath></additionalClasspath>
+    </javaposse.jobdsl.plugin.ExecuteDslScripts>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>

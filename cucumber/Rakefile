@@ -1,3 +1,13 @@
+require 'rubocop/rake_task'
+
+desc 'Make sure we are good rubyists'
+RuboCop::RakeTask.new(:rubocop) do |t|
+  t.formatters = ['progress']
+  t.options = ['-fhtml', '-oreports/rubocop.html']
+  #  don't abort rake on failure
+  t.fail_on_error = false
+end
+
 desc 'Remove all files from the ./reports and ./doc directory'
 task :clean do
   require 'fileutils'

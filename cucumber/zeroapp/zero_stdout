@@ -1,0 +1,6 @@
+=== puma startup: 2016-05-11 13:09:52 +0100 ===
+* Listening on tcp://0.0.0.0:4567
+- Gracefully stopping, waiting for requests to finish
+=== puma shutdown: 2016-05-11 13:10:19 +0100 ===
+- Goodbye!
+Puma is started

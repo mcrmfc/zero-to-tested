@@ -64,3 +64,8 @@ cookbooks
 
 # other
 token
+cucumber/reports
+cucumber/zero_stdout
+cucumber/zero_stderr
+cucumber/zeroapp/*.html
+cucumber/zeroapp/*.png

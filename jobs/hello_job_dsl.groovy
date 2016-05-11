@@ -30,7 +30,6 @@ job('zero-to-tested') {
                 failOnUndefinedSteps()
                 failOnMissingSteps()
                 turnOffFlashCharts()
-                //ignoreFailedTests()
                 //parallelTesting()
         }
         postBuildScripts {

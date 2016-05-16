@@ -1,6 +1,6 @@
 include_recipe 'jenkins::java'
 
-node.default['jenkins']['master']['version'] = '1.651.1'
+node.default['jenkins']['master']['version'] = '1.651.2'
 node.default['jenkins']['master']['repository'] = 'http://pkg.jenkins-ci.org/debian-stable'
 node.default['jenkins']['master']['repository_key'] = 'http://pkg.jenkins-ci.org/debian-stable/jenkins-ci.org.key'
 include_recipe 'jenkins::master'

@@ -13,9 +13,7 @@ job('zero-to-tested') {
             remote {
                 url('https://github.com/mcrmfc/zero-to-tested.git')
             }
-            wipeOutWorkspace(false)
-                createTag(false)
-                branch('wip')
+            branch('wip')
         }
     }
     steps {
@@ -32,6 +30,13 @@ job('zero-to-tested') {
                 turnOffFlashCharts()
                 //parallelTesting()
         }
+        archiveJunit('**/reports/*.xml')
+      publishHtml {
+        report('cucumber/reports') {
+           reportName('Rubocop Report')
+           reportFiles('rubocop.html')
+        }
+       }
         postBuildScripts {
             steps {
                 shell('cucumber/scripts/docker_stop.sh')

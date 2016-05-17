@@ -3,6 +3,7 @@ include_recipe 'jenkins::java'
 node.default['jenkins']['master']['version'] = '1.651.2'
 node.default['jenkins']['master']['repository'] = 'http://pkg.jenkins-ci.org/debian-stable'
 node.default['jenkins']['master']['repository_key'] = 'http://pkg.jenkins-ci.org/debian-stable/jenkins-ci.org.key'
+node.default['jenkins']['master']['jvm_options'] = '-Dhudson.model.DirectoryBrowserSupport.CSP='
 include_recipe 'jenkins::master'
 
 docker_service 'default' do
@@ -30,7 +31,7 @@ jobs.each do |job|
   end
 end
 
-plugins = %w(git ansicolor postbuildscript job-dsl cucumber-reports)
+plugins = %w(git ansicolor postbuildscript job-dsl cucumber-reports htmlpublisher)
 
 plugins.each do |plugin|
   jenkins_plugin plugin do

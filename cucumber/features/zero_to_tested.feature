@@ -9,7 +9,11 @@ Feature: Zero To Tested App
     When I visit ajaxy url
     Then the response contains "delayed"
 
-    @javascript
+  @javascript
   Scenario: Retry flaky url
     When I visit flaky url
     Then the response contains "you made it"
+
+  Scenario: Sloooow API
+    When I visit the hit count incrementer
+    Then the hit count increments

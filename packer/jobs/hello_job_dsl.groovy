@@ -2,6 +2,7 @@ job('zero-to-tested') {
     triggers {
         scm('H/15 * * * *')
     }
+    logRotator(-1, 10)
     wrappers {
         colorizeOutput('xterm')
     }

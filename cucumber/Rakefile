@@ -5,7 +5,7 @@ RuboCop::RakeTask.new(:rubocop) do |t|
   t.formatters = ['progress']
   t.options = ['-fhtml', '-oreports/rubocop.html']
   #  don't abort rake on failure
-  t.fail_on_error = false
+  t.fail_on_error = true
 end
 
 desc 'Remove all files from the ./reports and ./doc directory'

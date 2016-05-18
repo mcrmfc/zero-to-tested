@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 
 docker/docker_run.sh zero/test $CONTAINER_NAME cucumber docker
 

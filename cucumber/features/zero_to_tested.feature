@@ -10,6 +10,11 @@ Feature: Zero To Tested App
     Then the response contains "delayed"
 
   @javascript
+  Scenario: Wait for elements to become visible
+    When I visit visibility url
+    Then the response contains "Can you see me?"
+
+  @javascript
   Scenario: Retry flaky url
     When I visit flaky url
     Then the response contains "you made it"

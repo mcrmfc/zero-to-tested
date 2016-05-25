@@ -32,6 +32,13 @@ class ZeroApp < Sinatra::Base
       '</script></body></html>'
   end
 
+  get '/visibility' do
+    style='display:none'
+    "<html><head></head><body><div id='test' style='#{style}'>Can you see me?</div><script>"\
+      "setTimeout(function() { document.getElementById('test').style.display = 'block'; }, 5000);"\
+      '</script></body></html>'
+  end
+
   get '/hits' do
     content_type :json
     { hits: HitCounter.hit_count }.to_json

@@ -61,7 +61,7 @@ green 'Building docker image (should be mostly cached)...'
 docker build -t $image_name $dockerdir_name
 
 green 'Running docker image...'
-docker run -d --name $container_name -v $workdir_name:/opt/ruby -e BUNDLE_GITHUB__COM=$DOCKER_TOKEN:x-oauth-basic $image_name
+docker run -d --name $container_name -v $workdir_name:/opt/ruby $image_name
 
 green 'Update bundler'
 docker exec $container_name gem install --no-ri --no-rdoc bundler

@@ -16,6 +16,9 @@ docker exec -u $_user:$_group $CONTAINER_NAME bundle install --binstubs --path v
 docker exec $CONTAINER_NAME bundle exec rake clean
 
 # run static analysis
+docker exec $CONTAINER_NAME bin/rake spec
+
+# run static analysis
 docker exec $CONTAINER_NAME bin/rake rubocop
 
 # run tests

@@ -1,4 +1,9 @@
 require 'rubocop/rake_task'
+require 'rspec/core/rake_task'
+
+RSpec::Core::RakeTask.new(:spec) do |t|
+  t.rspec_opts = %w(--color -fprogress -fhtml -oreports/rspec.html)
+end
 
 desc 'Make sure we are good rubyists'
 RuboCop::RakeTask.new(:rubocop) do |t|

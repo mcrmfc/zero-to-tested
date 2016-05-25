@@ -33,7 +33,7 @@ class ZeroApp < Sinatra::Base
   end
 
   get '/visibility' do
-    style='display:none'
+    style = 'display:none'
     "<html><head></head><body><div id='test' style='#{style}'>Can you see me?</div><script>"\
       "setTimeout(function() { document.getElementById('test').style.display = 'block'; }, 5000);"\
       '</script></body></html>'

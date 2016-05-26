@@ -1,25 +1,32 @@
 # Zero To Tested Workshop
 
-Code to support workshop
+This is the code to support a talk I gave at the [agile.delivery](http://agile.delivery) conference.
+
+There is also an accompanying [blog post](http://agile.delivery/2016/05/04/bullet-proof-test-automation/)
 
 ## Infrastructure
 
 ### Vagrant
 
+Vagrant is used to test our infrastructure on a dev machine.
+
 * Simple Vagrantfile using Ubuntu 14.04 base with chef provisioning
 
 ### Chef
 
+#### Dependencies
+
+Use `berks vendor cookbooks` to install dependencies
+
 * Jenkins Cookbook
 * Docker Cookbook
-* Zero To Tested Cookbook
+* Zero To Tested Cookbook (the cookbook we have created)
   - require java
   - add jenkins official apt repo (otherwise we get Jenkins 2 from default repos by default and Chef doesn't yet support it)
   - start docker
   - add jenkins user to docker group
   - use jenkins cookbook to install our job dsl seed job xml
   - install required jenkins plugins (git, ansicolor, postbuildscript, cucumber reports)
-* `berks vendor cookbooks` - to bundle dependencies
 
 ### Job DSL
 
@@ -30,14 +37,30 @@ Code to support workshop
 
 ### Packer
 
+You will need to export you aws credentials in this format:
+
+```shell
+    export access_key="YOURACCESSKEY"
+    export secret_key="YOURSECRETKEY"
+```
+
 * Bake an AMI that looks like our Vagrant VM
-* Use base AMI (official Ubuntu cloud image - https://cloud-images.ubuntu.com/)
+* Use base AMI (official [Ubuntu cloud image](https://cloud-images.ubuntu.com/))
+* `packer build jenkins-packer.json` creates AMI and registers in AWS account
 
 ### Terraform
 
+
+You will need to export you aws credentials in this format:
+
+```shell
+    export TF_VAR_secret_key="YOURSECRETKEY"
+    export TF_VAR_access_key="YOURACCESSKEY"
+```
+
 * Builds out infrastructure
 * Saves using CloudFormation
-* VPC
+* Gives us a VPC
 * Single instance - uses ami build using Packer
 * Security Groups
 * Could easily switch to Jenkins master/agent configuration with autoscaling agents
@@ -61,6 +84,8 @@ Code to support workshop
 #### Features of tests
 
 * Page Objects
+* Unit tests for Page Objects
+* Static Analysis
 * Wait Strategies
 * Logging
 * Screenshots and HTML source dropped on failure

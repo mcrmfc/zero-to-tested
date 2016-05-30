@@ -2,20 +2,12 @@ When(/^I visit status url$/) do
   status.load
 end
 
-When(/^I visit ajaxy url$/) do
-  ajaxy.load
-end
-
-When(/^I visit visibility url$/) do
-  visibility.load
-end
-
-When(/^I visit flaky url$/) do
-  flaky.load
-end
-
 Then(/^the response contains "OK"$/) do
   expect(status).to have_text 'OK'
+end
+
+When(/^I visit ajaxy url$/) do
+  ajaxy.load
 end
 
 Then(/^the response contains "delayed"$/) do
@@ -23,9 +15,17 @@ Then(/^the response contains "delayed"$/) do
   expect(ajaxy.content).to have_text 'delayed'
 end
 
+When(/^I visit visibility url$/) do
+  visibility.load
+end
+
 Then(/^the response contains "Can you see me\?"$/) do
   visibility.wait_until_content_visible
   expect(visibility.content.text).to eq 'Can you see me?'
+end
+
+When(/^I visit flaky url$/) do
+  flaky.load
 end
 
 Then(/^the response contains "you made it"$/) do

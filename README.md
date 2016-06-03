@@ -4,6 +4,8 @@ This is the code to support a talk I gave at the [agile.delivery](http://agile.d
 
 There is also an accompanying [blog post](http://agile.delivery/2016/05/04/bullet-proof-test-automation/)
 
+Link to [slides](https://docs.google.com/presentation/d/1IQEV77nmBPTiyk2hR5MRB10dL5RaWrY7wrqix86F7Gg/edit?usp=sharing)
+
 ## Infrastructure
 
 ### Vagrant
